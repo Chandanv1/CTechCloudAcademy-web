@@ -609,7 +609,7 @@ function Index() {
               © {new Date().getFullYear()} CTech Cloud Academy. All rights
               reserved.
             </p>
-            <div className="flex gap-6 text-xs font-medium text-zinc-500">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-zinc-500 sm:gap-6">
               <a href="#courses" className="hover:text-cobalt">
                 Programs
               </a>
@@ -619,6 +619,38 @@ function Index() {
               <Link to="/contact" className="hover:text-cobalt">
                 Admissions
               </Link>
+              <a
+                href="https://www.linkedin.com/company/ctech-cloud-academy/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-cobalt"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/ctech_academy?stkn=bG5nM3g3djllOWJ4"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-cobalt"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.facebook.com/share/1DtV21dSTi/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-cobalt"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://wa.me/916361810138?text=Hi%20CTech%20Cloud%20Academy"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-cobalt"
+              >
+                WhatsApp
+              </a>
             </div>
           </div>
         </div>
