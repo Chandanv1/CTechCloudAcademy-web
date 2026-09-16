@@ -59,6 +59,14 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  /* CTech brand tokens */
+  --color-cobalt: var(--cobalt);
+  --color-cobalt-dark: var(--cobalt-dark);
+  --color-cobalt-100: var(--cobalt-100);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --font-display: "Instrument Sans", sans-serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 :root {
@@ -95,6 +103,12 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  /* CTech brand */
+  --cobalt: #1d4ed8;
+  --cobalt-dark: #1e40af;
+  --cobalt-100: #dbeafe;
+  --gold: #f59e0b;
+  --gold-deep: #d97706;
 }
 
 .dark {
