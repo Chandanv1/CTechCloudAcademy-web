@@ -9,6 +9,7 @@ const CONTACT_EMAIL = "ctechcloudacademy@gmail.com";
 const CONTACT_PHONE = "+919481852969";
 const WHATSAPP_LINK = `https://wa.me/${CONTACT_PHONE.replace("+", "")}?text=Hi%20CTech%20Cloud%20Academy`;
 const FACEBOOK_LINK = "https://www.facebook.com/share/19Wywnsucm/";
+const EMAIL_FUNCTION_URL = "/.netlify/functions/send-enquiry-email";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -74,6 +75,17 @@ function ContactPage() {
         throw insertError;
       }
 
+      const emailResponse = await fetch(EMAIL_FUNCTION_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+        }),
+      });
+
+      const confirmationEmailSent = emailResponse.ok;
+
       setSubmitted(true);
       setFormData({
         fullName: "",
@@ -82,7 +94,9 @@ function ContactPage() {
         message: "",
       });
       toast.success("Enquiry submitted successfully", {
-        description: "Our admissions team will contact you soon.",
+        description: confirmationEmailSent
+          ? "A confirmation email has been sent. Our admissions team will contact you soon."
+          : "Your enquiry was saved. Our admissions team will contact you soon.",
       });
     } catch {
       const message = "Something went wrong while submitting your enquiry. Please try again.";

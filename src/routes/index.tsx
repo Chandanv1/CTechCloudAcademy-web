@@ -584,9 +584,9 @@ function Index() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat with CTech Cloud Academy on WhatsApp"
-        className="fixed bottom-5 right-5 z-40 flex size-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg ring-4 ring-white/80 transition-transform hover:scale-105 hover:bg-emerald-600 sm:bottom-7 sm:right-7"
+        className="fixed bottom-4 right-4 z-40 flex size-11 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg ring-2 ring-white/80 transition-transform hover:scale-105 hover:bg-emerald-600 sm:bottom-5 sm:right-5"
       >
-        <MessageCircle className="size-7" strokeWidth={2.25} />
+        <MessageCircle className="size-6" strokeWidth={2.25} />
       </a>
 
       {/* Footer */}
