@@ -1,8 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 import ctechLogo from "@/assets/ctech-logo.png";
 import { supabase } from "@/lib/supabase";
+
+const CONTACT_EMAIL = "ctechcloudacademy@gmail.com";
+const CONTACT_PHONE = "+919481852969";
+const WHATSAPP_LINK = `https://wa.me/${CONTACT_PHONE.replace("+", "")}?text=Hi%20CTech%20Cloud%20Academy`;
+const FACEBOOK_LINK = "https://www.facebook.com/share/19Wywnsucm/";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -16,8 +22,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact & Enrollment — CTech Cloud Academy" },
       {
         property: "og:description",
-        content:
-          "Talk to a counselor or enroll in a cohort at CTech Cloud Academy.",
+        content: "Talk to a counselor or enroll in a cohort at CTech Cloud Academy.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -99,9 +104,7 @@ function ContactPage() {
               alt="CTech Cloud Academy logo"
               className="size-8 rounded-sm object-contain"
             />
-            <span className="font-display text-lg font-semibold tracking-tight">
-              CTech Academy
-            </span>
+            <span className="font-display text-lg font-semibold tracking-tight">CTech Academy</span>
           </Link>
           <Link
             to="/"
@@ -122,9 +125,17 @@ function ContactPage() {
               Talk to a counselor
             </h1>
             <p className="mx-auto mt-4 max-w-[52ch] text-pretty text-lg text-zinc-600">
-              Tell us about your goals and our admissions team will help you
-              choose the right course and secure your spot in the next cohort.
+              Tell us about your goals and our admissions team will help you choose the right course
+              and secure your spot in the next cohort.
             </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-zinc-600">
+              <a className="hover:text-cobalt" href={`mailto:${CONTACT_EMAIL}`}>
+                {CONTACT_EMAIL}
+              </a>
+              <a className="hover:text-cobalt" href={`tel:${CONTACT_PHONE}`}>
+                +91 94818 52969
+              </a>
+            </div>
           </div>
 
           {submitted ? (
@@ -132,12 +143,10 @@ function ContactPage() {
               <div className="mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-cobalt text-white">
                 <span className="text-lg">✓</span>
               </div>
-              <h2 className="font-display text-2xl font-semibold text-zinc-950">
-                Thank you!
-              </h2>
+              <h2 className="font-display text-2xl font-semibold text-zinc-950">Thank you!</h2>
               <p className="mt-2 text-zinc-600">
-                Your enquiry has been received. Our admissions team will reach
-                out within one business day.
+                Your enquiry has been received. Our admissions team will reach out within one
+                business day.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
@@ -153,9 +162,7 @@ function ContactPage() {
             >
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <label className="flex flex-col gap-2">
-                  <span className="text-sm font-medium text-zinc-700">
-                    Full name
-                  </span>
+                  <span className="text-sm font-medium text-zinc-700">Full name</span>
                   <input
                     required
                     name="fullName"
@@ -167,9 +174,7 @@ function ContactPage() {
                   />
                 </label>
                 <label className="flex flex-col gap-2">
-                  <span className="text-sm font-medium text-zinc-700">
-                    Email
-                  </span>
+                  <span className="text-sm font-medium text-zinc-700">Email</span>
                   <input
                     required
                     name="email"
@@ -183,9 +188,7 @@ function ContactPage() {
               </div>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <label className="flex flex-col gap-2">
-                  <span className="text-sm font-medium text-zinc-700">
-                    Phone
-                  </span>
+                  <span className="text-sm font-medium text-zinc-700">Phone</span>
                   <input
                     name="phone"
                     value={formData.phone}
@@ -200,9 +203,7 @@ function ContactPage() {
                 </div>
               </div>
               <label className="flex flex-col gap-2">
-                <span className="text-sm font-medium text-zinc-700">
-                  Message
-                </span>
+                <span className="text-sm font-medium text-zinc-700">Message</span>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -241,13 +242,10 @@ function ContactPage() {
                 alt="CTech Cloud Academy logo"
                 className="size-6 rounded-sm object-contain"
               />
-              <span className="font-display text-sm font-semibold">
-                CTech Cloud Academy
-              </span>
+              <span className="font-display text-sm font-semibold">CTech Cloud Academy</span>
             </div>
             <p className="text-xs text-zinc-400">
-              © {new Date().getFullYear()} CTech Cloud Academy. All rights
-              reserved.
+              © {new Date().getFullYear()} CTech Cloud Academy. All rights reserved.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a
@@ -257,7 +255,7 @@ function ContactPage() {
                 aria-label="LinkedIn"
                 className="flex size-10 items-center justify-center rounded-full border border-cobalt/20 bg-white text-lg text-cobalt shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-cobalt hover:text-white"
               >
-                in
+                <Linkedin className="size-5" aria-hidden="true" />
               </a>
               <a
                 href="https://www.instagram.com/ctech_academy?stkn=bG5nM3g3djllOWJ4"
@@ -266,25 +264,25 @@ function ContactPage() {
                 aria-label="Instagram"
                 className="flex size-10 items-center justify-center rounded-full border border-pink-200 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 text-lg font-bold text-white shadow-sm transition-transform hover:-translate-y-0.5"
               >
-                ◌
+                <Instagram className="size-5" aria-hidden="true" />
               </a>
               <a
-                href="https://www.facebook.com/share/1DtV21dSTi/"
+                href={FACEBOOK_LINK}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
                 className="flex size-10 items-center justify-center rounded-full border border-blue-200 bg-blue-600 text-lg font-bold text-white shadow-sm transition-transform hover:-translate-y-0.5"
               >
-                f
+                <Facebook className="size-5" aria-hidden="true" />
               </a>
               <a
-                href="https://wa.me/916361810138?text=Hi%20CTech%20Cloud%20Academy"
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"
                 className="flex size-10 items-center justify-center rounded-full border border-emerald-200 bg-emerald-500 text-lg font-bold text-white shadow-sm transition-transform hover:-translate-y-0.5"
               >
-                W
+                <MessageCircle className="size-5" aria-hidden="true" />
               </a>
             </div>
           </div>

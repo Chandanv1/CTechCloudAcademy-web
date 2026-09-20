@@ -1,7 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react";
 import ctechLogo from "@/assets/ctech-logo.png";
 import classroomImg from "@/assets/classroom.jpg";
+
+const CONTACT_EMAIL = "ctechcloudacademy@gmail.com";
+const CONTACT_PHONE = "+919481852969";
+const WHATSAPP_LINK = `https://wa.me/${CONTACT_PHONE.replace("+", "")}?text=Hi%20CTech%20Cloud%20Academy`;
+const FACEBOOK_LINK = "https://www.facebook.com/share/19Wywnsucm/";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -215,9 +221,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const visibleCourses =
-    activeTrack === "All Programs"
-      ? COURSES
-      : COURSES.filter((c) => c.track === activeTrack);
+    activeTrack === "All Programs" ? COURSES : COURSES.filter((c) => c.track === activeTrack);
 
   return (
     <div className="min-h-screen bg-zinc-50 font-sans text-zinc-900">
@@ -278,9 +282,8 @@ function Index() {
               <span className="text-gold">Land your dream role.</span>
             </h1>
             <p className="max-w-[52ch] text-pretty text-lg text-cobalt-100">
-              Live, mentor-led programs in Data, AI, DevOps and Cyber Security —
-              built for students and working professionals who want a real career
-              switch, not another certificate.
+              Live, mentor-led programs in Data, AI, DevOps and Cyber Security — built for students
+              and working professionals who want a real career switch, not another certificate.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link
@@ -326,9 +329,7 @@ function Index() {
               <span className="font-display text-2xl font-semibold text-gold sm:text-3xl">
                 {s.value}
               </span>
-              <span className="text-xs uppercase tracking-wide text-zinc-400">
-                {s.label}
-              </span>
+              <span className="text-xs uppercase tracking-wide text-zinc-400">{s.label}</span>
             </div>
           ))}
         </div>
@@ -371,16 +372,12 @@ function Index() {
               >
                 <span
                   className={`mb-4 inline-flex w-fit items-center rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wide ${
-                    c.accent === "gold"
-                      ? "bg-gold/15 text-gold-deep"
-                      : "bg-cobalt/10 text-cobalt"
+                    c.accent === "gold" ? "bg-gold/15 text-gold-deep" : "bg-cobalt/10 text-cobalt"
                   }`}
                 >
                   Live Online Program
                 </span>
-                <h3 className="font-display text-xl font-semibold text-zinc-950">
-                  {c.name}
-                </h3>
+                <h3 className="font-display text-xl font-semibold text-zinc-950">{c.name}</h3>
                 <p className="mt-1 text-sm text-zinc-500">{c.tagline}</p>
 
                 <dl className="my-5 grid grid-cols-2 gap-4 border-y border-zinc-100 py-4">
@@ -448,9 +445,7 @@ function Index() {
                 <span className="font-display text-3xl font-semibold text-cobalt-100">
                   {s.step}
                 </span>
-                <h3 className="font-display text-base font-semibold text-zinc-950">
-                  {s.title}
-                </h3>
+                <h3 className="font-display text-base font-semibold text-zinc-950">{s.title}</h3>
                 <p className="text-sm leading-relaxed text-zinc-600">{s.desc}</p>
               </div>
             ))}
@@ -510,9 +505,7 @@ function Index() {
                 <span className="font-display text-3xl leading-none text-gold">“</span>
                 <p className="text-sm leading-relaxed text-zinc-600">{t.quote}</p>
                 <cite className="not-italic">
-                  <span className="block text-sm font-semibold text-zinc-900">
-                    {t.name}
-                  </span>
+                  <span className="block text-sm font-semibold text-zinc-900">{t.name}</span>
                   <span className="block text-xs text-zinc-500">{t.role}</span>
                 </cite>
               </blockquote>
@@ -534,10 +527,7 @@ function Index() {
           </div>
           <div className="flex flex-col gap-3">
             {FAQS.map((f, i) => (
-              <div
-                key={f.q}
-                className="rounded-xl bg-zinc-50 ring-1 ring-zinc-950/5"
-              >
+              <div key={f.q} className="rounded-xl bg-zinc-50 ring-1 ring-zinc-950/5">
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -554,9 +544,7 @@ function Index() {
                   </span>
                 </button>
                 {openFaq === i && (
-                  <p className="px-6 pb-5 text-sm leading-relaxed text-zinc-600">
-                    {f.a}
-                  </p>
+                  <p className="px-6 pb-5 text-sm leading-relaxed text-zinc-600">{f.a}</p>
                 )}
               </div>
             ))}
@@ -571,8 +559,8 @@ function Index() {
             Ready to accelerate your career?
           </h2>
           <p className="mb-10 text-pretty text-lg text-cobalt-100">
-            Applications for the next cohort are open. Talk to a counsellor and
-            find the track that fits your background.
+            Applications for the next cohort are open. Talk to a counsellor and find the track that
+            fits your background.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -591,6 +579,16 @@ function Index() {
         </div>
       </section>
 
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat with CTech Cloud Academy on WhatsApp"
+        className="fixed bottom-5 right-5 z-40 flex size-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg ring-4 ring-white/80 transition-transform hover:scale-105 hover:bg-emerald-600 sm:bottom-7 sm:right-7"
+      >
+        <MessageCircle className="size-7" strokeWidth={2.25} />
+      </a>
+
       {/* Footer */}
       <footer className="border-t border-zinc-200 bg-zinc-50 py-12">
         <div className="mx-auto max-w-7xl px-6">
@@ -605,10 +603,17 @@ function Index() {
                 CTech Cloud Academy
               </span>
             </div>
-            <p className="text-xs text-zinc-400">
-              © {new Date().getFullYear()} CTech Cloud Academy. All rights
-              reserved.
-            </p>
+            <div className="flex flex-col items-center gap-1 text-center text-xs text-zinc-400">
+              <p>© {new Date().getFullYear()} CTech Cloud Academy. All rights reserved.</p>
+              <div className="flex flex-wrap justify-center gap-x-3 gap-y-1">
+                <a className="hover:text-cobalt" href={`mailto:${CONTACT_EMAIL}`}>
+                  {CONTACT_EMAIL}
+                </a>
+                <a className="hover:text-cobalt" href={`tel:${CONTACT_PHONE}`}>
+                  +91 94818 52969
+                </a>
+              </div>
+            </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-zinc-500 sm:gap-6">
               <a href="#courses" className="hover:text-cobalt">
                 Programs
@@ -625,7 +630,8 @@ function Index() {
                 rel="noreferrer"
                 className="hover:text-cobalt"
               >
-                LinkedIn
+                <Linkedin className="size-4" aria-hidden="true" />
+                <span className="sr-only">LinkedIn</span>
               </a>
               <a
                 href="https://www.instagram.com/ctech_academy?stkn=bG5nM3g3djllOWJ4"
@@ -633,23 +639,26 @@ function Index() {
                 rel="noreferrer"
                 className="hover:text-cobalt"
               >
-                Instagram
+                <Instagram className="size-4" aria-hidden="true" />
+                <span className="sr-only">Instagram</span>
               </a>
               <a
-                href="https://www.facebook.com/share/1DtV21dSTi/"
+                href={FACEBOOK_LINK}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-cobalt"
               >
-                Facebook
+                <Facebook className="size-4" aria-hidden="true" />
+                <span className="sr-only">Facebook</span>
               </a>
               <a
-                href="https://wa.me/916361810138?text=Hi%20CTech%20Cloud%20Academy"
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-cobalt"
               >
-                WhatsApp
+                <MessageCircle className="size-4" aria-hidden="true" />
+                <span className="sr-only">WhatsApp</span>
               </a>
             </div>
           </div>
